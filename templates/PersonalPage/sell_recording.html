@@ -26,33 +26,35 @@
 
     <hr class="splitter">
 
-    <form action="" id="sellRecording" method="post">
-        {% csrf_token %}
-        <h2>Sell recording</h2>
-        <ul typeof="Offer" vocab="http://schema.org/" >
-                <ul rel="itemOffered">
-                    <li typeof="MusicGroup">
-                       <p>Artist: <input property="genre" type="text" id="artist_rec" content="artistName" name="Artist" placeholder="Artist"></p>
+    <div id="content">
+        <form action="" id="sellRecording" method="post">
+            {% csrf_token %}
+            <h2>Sell recording</h2>
+            <ul typeof="Offer" vocab="http://schema.org/" >
+                    <ul rel="itemOffered">
+                        <li typeof="MusicGroup">
+                           <p>Artist: <input property="genre" type="text" id="artist_rec" content="artistName" name="Artist" placeholder="Artist"></p>
 
-                        <ul rel="track">
-                            <li typeof="MusicRecording">
-                                <p>Recording: <input property="isrcCode" type="text" id="rec_rec" content="recordingName" name="Recording" placeholder="Recording"></p>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-             <ul rel="review">
-                    <li typeof="Review">
-                        <p>Description: <textarea property="reviewBody" id="desc_rec" content="DescriptionSell" name="Desc" rows="1" cols="10" placeholder="Description"></textarea></p>
-                        <p class="hidden" property="author" content="author"></p>
-                    </li>
-             </ul>
-            <p>Price: <input property="price" type="text" id="price_rec" content="priceSell" name="Price" placeholder="Price"> </p>
-        </ul>
-        <button class="button" type="submit"  value="Sell"></button>
-    </form>
+                            <ul rel="track">
+                                <li typeof="MusicRecording">
+                                    <p>Recording: <input property="isrcCode" type="text" id="rec_rec" content="recordingName" name="Recording" placeholder="Recording"></p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                 <ul rel="review">
+                        <li typeof="Review">
+                            <p>Description: <textarea property="reviewBody" id="desc_rec" content="DescriptionSell" name="Desc" rows="1" cols="10" placeholder="Description"></textarea></p>
+                            <p class="hidden" property="author" content="author"></p>
+                        </li>
+                 </ul>
+                <p>Price: <input property="price" type="text" id="price_rec" content="priceSell" name="Price" placeholder="Price"> </p>
+            </ul>
+            <button class="button" type="submit"  value="Sell"></button>
+        </form>
+    </div>
 
-
+    
     <div id="outt"></div>
 </body>
 </html>

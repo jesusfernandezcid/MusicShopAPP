@@ -13,15 +13,15 @@
 
     <title>Sell Recording</title>
 </head>
-
-<header id="top"><h1>
-    <a class="link" href="{% url 'home_page' %}">Home Page</a> &nbsp | &nbsp
-
-    <a class="link" href="{% url 'personal_home_page' %}">Personal page</a> &nbsp | &nbsp
-
-    Welcome: {{ user.username }} <a class="link" href="{% url 'logout' %}">Logout</a>
-
-    </h1>
+<body>
+<header id="top">
+    <div class="userHome">
+        <a id="home" class="link" href="{% url 'home_page' %}">Home Page</a>
+        <a id="personal" class="link" href="{% url 'personal_home_page' %}">Personal page</a>
+    </div>
+    <div class="userLog">
+        Welcome: {{ user.username }} <a class="link" href="{% url 'logout' %}">Logout</a>
+    </div>
 </header>
 
 <hr class="splitter">
@@ -35,7 +35,7 @@
         <p>Price: <input type="text" id="price_rec" name="Price" placeholder="Price"> </p>
         <button class="button" type="submit"  value="Sell" />
     </form>
-
+  
 
 <div id="outt"></div>
 </body>

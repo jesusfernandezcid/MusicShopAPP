@@ -13,30 +13,46 @@
 
     <title>Sell Recording</title>
 </head>
+<body>
+    <header id="top"><h1>
+        <a class="link" href="{% url 'home_page' %}">Home Page</a> &nbsp | &nbsp
 
-<header id="top"><h1>
-    <a class="link" href="{% url 'home_page' %}">Home Page</a> &nbsp | &nbsp
+        <a class="link" href="{% url 'personal_home_page' %}">Personal page</a> &nbsp | &nbsp
 
-    <a class="link" href="{% url 'personal_home_page' %}">Personal page</a> &nbsp | &nbsp
+        Welcome: {{ user.username }} <a class="link" href="{% url 'logout' %}">Logout</a>
 
-    Welcome: {{ user.username }} <a class="link" href="{% url 'logout' %}">Logout</a>
+        </h1>
+    </header>
 
-    </h1>
-</header>
-
-<hr class="splitter">
+    <hr class="splitter">
 
     <form action="" id="sellRecording" method="post">
         {% csrf_token %}
         <h2>Sell recording</h2>
-        <p>Artist: <input type="text" id="artist_rec" name="Artist" placeholder="Artist"> </p>
-        <p>Recording: <input type="text" id="rec_rec" name="Recording" placeholder="Recording"></p>
-        <p>Description: <textarea id="desc_rec" name="Desc" rows="1" cols="10" placeholder="Description"></textarea></p>
-        <p>Price: <input type="text" id="price_rec" name="Price" placeholder="Price"> </p>
-        <button class="button" type="submit"  value="Sell" />
+        <ul typeof="Offer" vocab="http://schema.org/" >
+                <ul rel="itemOffered">
+                    <li typeof="MusicGroup">
+                       <p>Artist: <input property="genre" type="text" id="artist_rec" content="artistName" name="Artist" placeholder="Artist"></p>
+
+                        <ul rel="track">
+                            <li typeof="MusicRecording">
+                                <p>Recording: <input property="isrcCode" type="text" id="rec_rec" content="recordingName" name="Recording" placeholder="Recording"></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+             <ul rel="review">
+                    <li typeof="Review">
+                        <p>Description: <textarea property="reviewBody" id="desc_rec" content="DescriptionSell" name="Desc" rows="1" cols="10" placeholder="Description"></textarea></p>
+                        <p class="hidden" property="author" content="author"></p>
+                    </li>
+             </ul>
+            <p>Price: <input property="price" type="text" id="price_rec" content="priceSell" name="Price" placeholder="Price"> </p>
+        </ul>
+        <button class="button" type="submit"  value="Sell"></button>
     </form>
 
 
-<div id="outt"></div>
+    <div id="outt"></div>
 </body>
 </html>
